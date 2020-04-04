@@ -1,0 +1,241 @@
+// font style from google fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+//remove all margins
+// If you set box-sizing: border-box; on an element,
+// padding and border are included in the width and height
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+// set the choosen font style
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+}
+
+// display flex moves everything on one line
+// width little bit lower, use margin auto for perfect layout
+// align-items center everything is alligned in the center
+header {
+    display: flex;
+    width: 90%;
+    height: 50vh;
+    margin: auto;
+    align-items: center;
+
+    // put all next to eachother
+    .logo-container,
+    .nav-links,
+    .cart {
+        display: flex;
+    }
+
+    // with flex numbers you can show how much space is left
+    .logo-container {
+        flex: 1;
+    }
+
+    .logo {
+        font-weight: 400;
+        margin: 5px;
+    }
+
+    nav {
+        flex: 2;
+    }
+
+    // items evenly distributed in the line with equal space around them
+    .nav-links {
+        justify-content: space-around;
+        // remove the dots before the words
+        list-style: none;
+    }
+
+    .nav-link {
+        color: #5f5f79;
+        font-size: 20px;
+        text-decoration: none;
+    }
+
+    // move to the end of the page
+    .cart {
+        flex: 1;
+        justify-content: flex-end;
+    }
+}
+
+.presentation {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    min-height: 80hv;
+    align-items: center;
+
+    .introduction {
+        flex: 1;
+    }
+
+    .intro-text h1 {
+        font-size: 44px;
+        font-weight: 500;
+        // gradient from left to right from one color to the second color
+        background: linear-gradient(to right, #494964, #6f6f89);
+        // clip this effect of gradient to the text itself
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .intro-text p {
+        margin-top: 5px;
+        font-size: 22px;
+        color: #585772;
+    }
+
+    .cta {
+        // top, right, under, left padding
+        padding: 50px 0px 50px 0px;
+    }
+
+    .cta-select {
+        border: 2px solid #c36cbb;
+        background: transparent;
+        color: #c36cbb;
+        width: 150px;
+        height: 50px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .cta-add {
+        background: #c36cbb;
+        width: 150px;
+        height: 50px;
+        cursor: pointer;
+        font-size: 16px;
+        color: white;
+        margin: 30px 0px 0px 50px;
+    }
+
+}
+
+.cover {
+    flex: 1;
+    height: 30vh;
+}
+
+// resize the image
+// add shadow to the image itself
+.cover img {
+    height: 100%;
+    filter: drop-shadow(0px 2px 2px black);
+    animation: drop 1.5s ease;
+}
+
+// use z-index to put something to the back or front 
+.big-circle {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: -1;
+    opacity: 0.2;
+    height: 80%;
+}
+
+.medium-circle {
+    position: absolute;
+    top: 20%;
+    right: 30%;
+    z-index: -1;
+    opacity: 0.6;
+    height: 70%;
+}
+
+.small-circle {
+    position: absolute;
+    bottom: 0%;
+    left: 20%;
+    z-index: -1;
+    opacity: 0.6;
+    height: 50%;
+}
+
+// position absolute so we can move it everywhere we want
+.laptop-select {
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    right: 27%;
+}
+
+
+@keyframes drop {
+    0% {
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+// for different sizes of the screen
+// flex direction column, when smaller move into columns
+@media screen and (max-width: 1024px) {
+    header {
+        padding: 0px 0px 0px 0px;
+    }
+
+    .presentation {
+        flex-direction: column;
+    }
+
+    .introduction {
+        text-align: center;
+    }
+
+    .intro-text h1 {
+        font-size: 30px;
+    }
+
+    .intro-text p {
+        font-size: 18px;
+    }
+
+    .cta {
+        padding: 10px 0px 0px 0px;
+    }
+
+    .laptop-select {
+        right: 50%;
+        width: 50%;
+        transform: translate(50%, 5%);
+    }
+
+    .cover img {
+        height: 20vh;
+        padding: 10px 0px 0px 0px;
+    }
+
+
+    @media screen and (max-width: 750px) {
+        header {
+            flex-direction: column;
+            padding: 0px 0px 500px 0px;
+
+            .nav-links {
+                flex-direction: column;
+                padding: 0px 0px 20px 0px;
+            }
+        }
+    }
+
+}
